@@ -130,43 +130,6 @@
       box-shadow: 0 0 10px rgba(21, 101, 192, 0.6), 0 0 20px rgba(0, 229, 255, 0.3);
     }
 
-    /* Back to top button */
-    #backToTop {
-      position: fixed;
-      bottom: 100px;
-      right: 28px;
-      width: 44px;
-      height: 44px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: var(--blue-light);
-      cursor: pointer;
-      z-index: 899;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: var(--transition);
-      pointer-events: none;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    #backToTop.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    #backToTop:hover {
-      background: rgba(21, 101, 192, 0.25);
-      border-color: var(--blue-light);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-blue);
-    }
 
     /* =============================================
        KEYFRAME ANIMATIONS
@@ -2221,6 +2184,242 @@
     }
 
     /* =============================================
+       ESPECIALISTA — TECH VISUALIZATION
+    ============================================= */
+    .especialista-viz-container {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid transparent;
+      background:
+        linear-gradient(var(--blue-dark), var(--blue-dark)) padding-box,
+        linear-gradient(135deg, var(--green-main), var(--blue-light)) border-box;
+      box-shadow: 0 0 40px rgba(46, 125, 50, 0.28), 0 0 80px rgba(21, 101, 192, 0.2);
+      transition: var(--transition);
+      position: relative;
+      z-index: 2;
+    }
+
+    .especialista-viz-container:hover {
+      box-shadow: 0 0 60px rgba(46, 125, 50, 0.4), 0 0 100px rgba(21, 101, 192, 0.3);
+    }
+
+    .esp-viz-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(21, 101, 192, 0.22) 0%, transparent 60%),
+        radial-gradient(circle at 25% 75%, rgba(46, 125, 50, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 75% 25%, rgba(0, 229, 255, 0.09) 0%, transparent 44%);
+    }
+
+    .esp-viz-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(66, 165, 245, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66, 165, 245, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .esp-viz-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes flowLine {
+      0%   { stroke-dashoffset: 40; }
+      100% { stroke-dashoffset: 0;  }
+    }
+
+    .viz-line {
+      stroke-width: 1;
+      stroke-dasharray: 5 5;
+      animation: flowLine 2.4s linear infinite;
+    }
+
+    .viz-line-blue  { stroke: rgba(66, 165, 245, 0.45); }
+    .viz-line-green { stroke: rgba(102, 187, 106, 0.45); }
+    .viz-line-1 { animation-delay: 0s;    }
+    .viz-line-2 { animation-delay: -0.4s; }
+    .viz-line-3 { animation-delay: -0.8s; }
+    .viz-line-4 { animation-delay: -1.2s; }
+    .viz-line-5 { animation-delay: -1.6s; }
+    .viz-line-6 { animation-delay: -2.0s; }
+
+    .esp-orb-node {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+      cursor: default;
+      z-index: 3;
+    }
+
+    .esp-orb-node.blue-node {
+      background: rgba(21, 101, 192, 0.28);
+      border: 1px solid rgba(66, 165, 245, 0.45);
+      box-shadow: 0 0 16px rgba(66, 165, 245, 0.2);
+    }
+
+    .esp-orb-node.green-node {
+      background: rgba(46, 125, 50, 0.28);
+      border: 1px solid rgba(102, 187, 106, 0.45);
+      box-shadow: 0 0 16px rgba(102, 187, 106, 0.2);
+    }
+
+    .esp-orb-node:hover { transform: translate(-50%, -50%) scale(1.22); }
+    .esp-orb-node.blue-node:hover  { box-shadow: 0 0 24px rgba(66, 165, 245, 0.55);  }
+    .esp-orb-node.green-node:hover { box-shadow: 0 0 24px rgba(102, 187, 106, 0.55); }
+
+    @keyframes nodeFloat {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0);    }
+      50%       { transform: translate(-50%, -50%) translateY(-5px); }
+    }
+
+    .esp-orb-node.n1 { top: 14.7%; left: 50%;   animation: nodeFloat 3.8s ease-in-out infinite;                      }
+    .esp-orb-node.n2 { top: 32.4%; left: 80.6%; animation: nodeFloat 4.2s ease-in-out infinite; animation-delay: -0.7s;  }
+    .esp-orb-node.n3 { top: 67.6%; left: 80.6%; animation: nodeFloat 4.0s ease-in-out infinite; animation-delay: -1.4s;  }
+    .esp-orb-node.n4 { top: 85.3%; left: 50%;   animation: nodeFloat 3.9s ease-in-out infinite; animation-delay: -2.1s;  }
+    .esp-orb-node.n5 { top: 67.6%; left: 19.4%; animation: nodeFloat 4.1s ease-in-out infinite; animation-delay: -2.8s;  }
+    .esp-orb-node.n6 { top: 32.4%; left: 19.4%; animation: nodeFloat 4.3s ease-in-out infinite; animation-delay: -3.5s;  }
+
+    .esp-hub-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px;
+      height: 76px;
+      z-index: 4;
+    }
+
+    .esp-hub-pulse-ring {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(66, 165, 245, 0.4);
+      animation: hubRingExpand 3s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .esp-hub-pulse-ring-2 {
+      position: absolute;
+      inset: -26px;
+      border-radius: 50%;
+      border: 1px solid rgba(102, 187, 106, 0.3);
+      animation: hubRingExpand 3s ease-out infinite;
+      animation-delay: -1.5s;
+      pointer-events: none;
+    }
+
+    @keyframes hubRingExpand {
+      0%   { opacity: 0.9; transform: scale(0.85); }
+      100% { opacity: 0;   transform: scale(1.4);  }
+    }
+
+    .esp-hub-core {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--blue-main), var(--green-main));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      animation: hubGlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes hubGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.18),
+                    0 0 28px rgba(21, 101, 192, 0.5),
+                    0 0 56px rgba(46, 125, 50, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(66, 165, 245, 0.12),
+                    0 0 48px rgba(21, 101, 192, 0.65),
+                    0 0 90px rgba(46, 125, 50, 0.38);
+      }
+    }
+
+    .esp-hub-name {
+      position: absolute;
+      top: calc(50% + 50px);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-head);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--blue-light), var(--green-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      z-index: 4;
+    }
+
+    .esp-particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes particleFloat {
+      0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.75; }
+      33%       { transform: translate(9px, -14px) scale(1.4);  opacity: 1;    }
+      66%       { transform: translate(-7px, 9px) scale(0.7);   opacity: 0.4;  }
+    }
+
+    .esp-particle-1 {
+      width: 5px; height: 5px;
+      top: 28%; left: 44%;
+      background: var(--blue-glow);
+      box-shadow: 0 0 8px var(--blue-glow);
+      animation: particleFloat 5.5s ease-in-out infinite;
+    }
+
+    .esp-particle-2 {
+      width: 4px; height: 4px;
+      top: 62%; left: 58%;
+      background: var(--green-glow);
+      box-shadow: 0 0 6px var(--green-glow);
+      animation: particleFloat 6.5s ease-in-out infinite;
+      animation-delay: -2.2s;
+    }
+
+    .esp-particle-3 {
+      width: 4px; height: 4px;
+      top: 42%; left: 30%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 6px var(--accent-cyan);
+      animation: particleFloat 7s ease-in-out infinite;
+      animation-delay: -1.1s;
+    }
+
+    .esp-particle-4 {
+      width: 3px; height: 3px;
+      top: 72%; left: 38%;
+      background: var(--blue-glow);
+      box-shadow: 0 0 5px var(--blue-glow);
+      animation: particleFloat 5s ease-in-out infinite;
+      animation-delay: -3.5s;
+    }
+
+    /* =============================================
        RESPONSIVE
     ============================================= */
     @media (max-width: 1024px) {
@@ -2336,9 +2535,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      #backToTop {
-        bottom: 96px;
-      }
     }
 
     @media (max-width: 520px) {
@@ -2619,9 +2815,46 @@
             <div class="arc-ring arc-ring-1"></div>
             <div class="arc-ring arc-ring-2"></div>
             <div class="arc-ring arc-ring-3"></div>
-            <div class="especialista-img-container">
-              <img src="especialista.jpg" alt="Felipe – Especialista em Automações ConectaSoft"
-                class="especialista-photo" loading="lazy" />
+            <div class="especialista-viz-container" role="img" aria-label="Rede de automação ConectaSoft: iluminação, câmeras, acesso, alimentação animal, automação rural e projetos personalizados">
+              <!-- Background layers -->
+              <div class="esp-viz-bg"></div>
+              <div class="esp-viz-grid"></div>
+
+              <!-- Animated connection lines -->
+              <svg class="esp-viz-lines" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <line class="viz-line viz-line-blue  viz-line-1" x1="170" y1="170" x2="170" y2="50" />
+                <line class="viz-line viz-line-blue  viz-line-2" x1="170" y1="170" x2="274" y2="110"/>
+                <line class="viz-line viz-line-blue  viz-line-3" x1="170" y1="170" x2="274" y2="230"/>
+                <line class="viz-line viz-line-green viz-line-4" x1="170" y1="170" x2="170" y2="290"/>
+                <line class="viz-line viz-line-green viz-line-5" x1="170" y1="170" x2="66"  y2="230"/>
+                <line class="viz-line viz-line-green viz-line-6" x1="170" y1="170" x2="66"  y2="110"/>
+              </svg>
+
+              <!-- Orbital service nodes -->
+              <div class="esp-orb-node blue-node  n1" title="Iluminação"         aria-hidden="true">💡</div>
+              <div class="esp-orb-node blue-node  n2" title="Câmeras"            aria-hidden="true">📷</div>
+              <div class="esp-orb-node blue-node  n3" title="Controle de Acesso" aria-hidden="true">🔒</div>
+              <div class="esp-orb-node green-node n4" title="Alimentação Animal" aria-hidden="true">🐄</div>
+              <div class="esp-orb-node green-node n5" title="Automação Rural"    aria-hidden="true">🌿</div>
+              <div class="esp-orb-node blue-node  n6" title="Personalizados"     aria-hidden="true">⚙️</div>
+
+              <!-- Central hub -->
+              <div class="esp-hub-wrap">
+                <div class="esp-hub-pulse-ring"></div>
+                <div class="esp-hub-pulse-ring-2"></div>
+                <div class="esp-hub-core">
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                    <path d="M12 2C9.24 2 7 4.24 7 7c0 1.72.87 3.24 2.2 4.15L8 14h8l-1.2-2.85A5 5 0 0 0 17 7c0-2.76-2.24-5-5-5zm-1 9V9h2v2h-2zm1-4a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3zm-4 8h8l1 4H7l1-4z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="esp-hub-name" aria-hidden="true">ConectaSoft</div>
+
+              <!-- Floating particles -->
+              <div class="esp-particle esp-particle-1" aria-hidden="true"></div>
+              <div class="esp-particle esp-particle-2" aria-hidden="true"></div>
+              <div class="esp-particle esp-particle-3" aria-hidden="true"></div>
+              <div class="esp-particle esp-particle-4" aria-hidden="true"></div>
             </div>
             <div class="esp-badge">
               <div class="esp-badge-icon">⚡</div>
@@ -3010,8 +3243,6 @@
     </svg>
   </a>
 
-  <!-- Back to top -->
-  <button id="backToTop" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
 
   <!-- ============================================================
        JAVASCRIPT
@@ -3026,11 +3257,6 @@
       scrollProgress.style.width = pct + '%';
     }
 
-    /* === Back to top button === */
-    const backToTop = document.getElementById('backToTop');
-    function updateBackToTop() {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    }
 
     /* === Navbar scroll === */
     const navbar = document.getElementById('navbar');
@@ -3058,7 +3284,6 @@
       if (!ticking) {
         requestAnimationFrame(() => {
           updateScrollProgress();
-          updateBackToTop();
           updateNavbar();
           updateActiveLink();
           ticking = false;
