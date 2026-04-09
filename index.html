@@ -1316,17 +1316,9 @@
     }
 
     .especialista-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .especialista-photo-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .especialista-arcs {
@@ -1440,6 +1432,7 @@
       gap: 10px;
       flex-wrap: wrap;
       margin-bottom: 28px;
+      justify-content: center;
     }
 
     .esp-chip {
@@ -1470,6 +1463,7 @@
       color: var(--text-muted);
       line-height: 1.78;
       margin-bottom: 24px;
+      text-align: left;
     }
 
     .especialista-text .esp-bio strong {
@@ -1482,6 +1476,11 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-bottom: 34px;
+      text-align: left;
+    }
+
+    .especialista-text > .btn {
+      margin: 0 auto;
     }
 
     .esp-skill {
@@ -1498,7 +1497,7 @@
     .esp-skill:hover {
       background: rgba(66, 165, 245, 0.06);
       border-color: rgba(66, 165, 245, 0.2);
-      transform: translateX(4px);
+      transform: translateY(-2px);
     }
 
     .esp-skill-dot {
@@ -2497,17 +2496,6 @@
         display: none;
       }
 
-      .especialista-grid {
-        grid-template-columns: 1fr;
-        gap: 52px;
-      }
-
-      .especialista-arcs {
-        width: 268px;
-        height: 268px;
-        margin: 0 auto;
-      }
-
       .esp-skills {
         grid-template-columns: 1fr;
       }
@@ -2826,56 +2814,7 @@
     <div class="container">
       <div class="especialista-grid">
 
-        <div class="especialista-photo-wrap reveal-left">
-          <div class="especialista-arcs">
-            <div class="arc-ring arc-ring-1"></div>
-            <div class="arc-ring arc-ring-2"></div>
-            <div class="arc-ring arc-ring-3"></div>
-            <div class="especialista-viz-container" role="img" aria-label="Rede de automação ConectaSoft: iluminação, câmeras, acesso, alimentação animal, automação rural e projetos personalizados">
-              <!-- Background layers -->
-              <div class="esp-viz-bg"></div>
-              <div class="esp-viz-grid"></div>
-
-              <!-- Animated connection lines -->
-              <svg class="esp-viz-lines" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <line class="viz-line viz-line-blue  viz-line-1" x1="170" y1="170" x2="170" y2="50" />
-                <line class="viz-line viz-line-blue  viz-line-2" x1="170" y1="170" x2="274" y2="110"/>
-                <line class="viz-line viz-line-blue  viz-line-3" x1="170" y1="170" x2="274" y2="230"/>
-                <line class="viz-line viz-line-green viz-line-4" x1="170" y1="170" x2="170" y2="290"/>
-                <line class="viz-line viz-line-green viz-line-5" x1="170" y1="170" x2="66"  y2="230"/>
-                <line class="viz-line viz-line-green viz-line-6" x1="170" y1="170" x2="66"  y2="110"/>
-              </svg>
-
-              <!-- Orbital service nodes -->
-              <div class="esp-orb-node blue-node  n1" title="Iluminação"         aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
-              <div class="esp-orb-node blue-node  n2" title="Câmeras"            aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="12" height="5" rx="1.5"/><path d="M14 11.5l6-3v7l-6-3z"/><line x1="7" y1="10" x2="7" y2="7"/><line x1="5" y1="7" x2="9" y2="7"/></svg></div>
-              <div class="esp-orb-node blue-node  n3" title="Controle de Acesso" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-              <div class="esp-orb-node green-node n4" title="Alimentação Animal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66bb6a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5.5C8 3 5 2.5 5 4.5"/><path d="M15.5 5.5C16 3 19 2.5 19 4.5"/><ellipse cx="12" cy="11.5" rx="6.5" ry="5.5"/><path d="M5.5 10.5C4 9.5 3.5 11.5 5.2 12"/><path d="M18.5 10.5C20 9.5 20.5 11.5 18.8 12"/><ellipse cx="12" cy="15.5" rx="3" ry="2"/><circle cx="10.8" cy="15.5" r="0.7"/><circle cx="13.2" cy="15.5" r="0.7"/></svg></div>
-              <div class="esp-orb-node green-node n5" title="Automação Rural"    aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66bb6a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
-              <div class="esp-orb-node blue-node  n6" title="Personalizados"     aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-
-              <!-- Central hub -->
-              <div class="esp-hub-wrap">
-                <div class="esp-hub-pulse-ring"></div>
-                <div class="esp-hub-pulse-ring-2"></div>
-                <div class="esp-hub-core">
-                  <svg width="38" height="38" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                    <path d="M12 2C9.24 2 7 4.24 7 7c0 1.72.87 3.24 2.2 4.15L8 14h8l-1.2-2.85A5 5 0 0 0 17 7c0-2.76-2.24-5-5-5zm-1 9V9h2v2h-2zm1-4a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3zm-4 8h8l1 4H7l1-4z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="esp-hub-name" aria-hidden="true">ConectaSoft</div>
-
-              <!-- Floating particles -->
-              <div class="esp-particle esp-particle-1" aria-hidden="true"></div>
-              <div class="esp-particle esp-particle-2" aria-hidden="true"></div>
-              <div class="esp-particle esp-particle-3" aria-hidden="true"></div>
-              <div class="esp-particle esp-particle-4" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="especialista-text reveal-right">
+        <div class="especialista-text reveal">
           <span class="section-tag tag-green">✦ Sobre o especialista</span>
           <h2 class="section-title">
             Felipe —<br><span class="gradient-text-blue">expertise</span> que<br>você pode <span
